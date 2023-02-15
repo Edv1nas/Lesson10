@@ -1,14 +1,22 @@
 
-def check_unique(str):
-  for i in range(len(str)):
-    for j in range(i + 1,len(str)):
-      if(str[i] == str[j]):
-        return False
-  return True
+'''Create a function that returns only strings with unique characters.'''
+from typing import List
 
-str = input("Please enter string: ")
 
-if(check_unique(str)):
-  print(f"String {str} contains unique value")
-else:
-  print(f"String {str} contains duplicate value")
+strings_list = ["Tomas", "Tadas", "Vytautas", "medis", "Meras", "asas"]
+
+
+def unique_values(str_list: List[str])-> List[str]:
+    new_str_list = []
+    for value in str_list:
+        for i in value:
+            if len(set(value)) == len(value):
+                new_str_list.append(value)
+            
+    return set(new_str_list)
+
+
+           
+
+unique = unique_values(strings_list)
+print(unique)
